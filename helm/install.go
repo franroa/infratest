@@ -12,6 +12,15 @@ import (
 	"github.com/gruntwork-io/terratest/modules/files"
 )
 
+func InstallWithDefaultKubectlOptions(t *testing.T, releaseName string) *k8s.KubectlOptions {
+	environment.SetPropertyFile("../env.yaml")
+	helmChart := "./../charts/" + releaseName
+	kubectlOptions := k8s.NewKubectlOptions(t, "", "default")
+	InstallWithKubectlOptions(t, kubectlOptions, helmChart, releaseName)
+
+	return kubectlOptions
+}
+
 func InstallWithKubectlOptions(t *testing.T, kubectlOptions *k8s.KubectlOptions, chart string, releaseName string) {
 	options := &Options{
 		KubectlOptions: kubectlOptions,

@@ -2,9 +2,9 @@ package asserts
 
 import (
 	"github.com/aws/aws-sdk-go/service/iam"
+	aws "github.com/franroa/infratest/aws"
 	"github.com/stretchr/testify/assert"
 	"net/url"
-	aws "github.com/franroa/infratest/aws"
 	"testing"
 )
 

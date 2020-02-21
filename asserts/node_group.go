@@ -2,8 +2,8 @@ package asserts
 
 import (
 	"github.com/aws/aws-sdk-go/service/eks"
-	"github.com/stretchr/testify/assert"
 	aws "github.com/franroa/infratest/aws"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 

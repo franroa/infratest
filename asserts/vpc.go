@@ -2,9 +2,9 @@ package asserts
 
 import (
 	"github.com/aws/aws-sdk-go/service/ec2"
+	aws "github.com/franroa/infratest/aws"
 	"github.com/gruntwork-io/terratest/modules/terraform"
 	"github.com/stretchr/testify/assert"
-	aws "github.com/franroa/infratest/aws"
 	"testing"
 )
 

@@ -35,14 +35,15 @@ func GetServiceE(t *testing.T, options *KubectlOptions, serviceName string) (*co
 }
 
 // WaitUntilServiceAvailable waits until the service endpoint is ready to accept traffic.
-func WaitUntilServiceAvailable(t *testing.T, options *KubectlOptions, serviceName string, retries int, sleepBetweenRetries time.Duration) {
+func
+WaitUntilServiceAvailable(t *testing.T, options *KubectlOptions, serviceName string, retries int, sleepBetweenRetries time.Duration) {
 	statusMsg := fmt.Sprintf("Wait for service %s to be provisioned.", serviceName)
 	message := retry.DoWithRetry(
 		t,
 		statusMsg,
 		retries,
 		sleepBetweenRetries,
-		func() (string, error) {
+		func() (interface{}, error) {
 			service, err := GetServiceE(t, options, serviceName)
 			if err != nil {
 				return "", err
@@ -61,7 +62,7 @@ func WaitUntilServiceAvailable(t *testing.T, options *KubectlOptions, serviceNam
 			return "Service is now available", nil
 		},
 	)
-	logger.Logf(t, message)
+	logger.Logf(t, message.(string))
 }
 
 
